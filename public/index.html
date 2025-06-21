@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Item Manager</title>
+</head>
+<body bgcolor="cornsilk">
+  <h1>Item List</h1>
+  <ul id="itemList"></ul>
+
+  <h2>Add Item</h2>
+  <form id="itemForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="text" id="description" placeholder="Description" required>
+    <input type="number" id="quantity" placeholder="Quantity" required>
+    <button type="submit">Add Item</button>
+  </form>
+
+  <script>
+    const apiUrl = '/api/items';
+
+    async function fetchItems() {
+      const res = await fetch(apiUrl);
+      const items = await res.json();
+      const list = document.getElementById('itemList');
+      list.innerHTML = '';
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - ${item.description} (Qty: ${item.quantity})`;
+        list.appendChild(li);
+      });
+    }
+
+    document.getElementById('itemForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const description = document.getElementById('description').value;
+      const quantity = document.getElementById('quantity').value;
+
+      await fetch(apiUrl, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ name, description, quantity: Number(quantity) })
+      });
+
+      e.target.reset();
+      fetchItems();
+    });
+
+    fetchItems();
+  </script>
+</body>
+</html>
