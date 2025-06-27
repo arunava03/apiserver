@@ -1,30 +1,32 @@
-# Custom API Server
+# 📦 Custom API Server with MongoDB, Tests, and Frontend
 
-## 🔧 Description
-A Node.js + Express server with MongoDB Atlas integration. Provides 4 custom API endpoints for CRUD operations on `items`. Includes a minimal HTML+JS frontend.
+This project is a full-stack application that includes a Node.js + Express API server with MongoDB integration, frontend interaction, and thorough automated tests (unit, integration, and API). It provides full CRUD functionality for managing items.
 
 ## 🚀 Features
-- Create, read, update, and delete items via custom APIs
-- Simple web frontend to add and view items
-- Connected to MongoDB Atlas (cloud-hosted DB)
-- API tested using Postman
 
-## 🛠 Technologies Used
-- Node.js
-- Express.js
-- MongoDB Atlas
-- Mongoose
-- HTML, CSS, JavaScript (Frontend)
-- Postman (API testing)
+- ✅ Custom REST API with 4 CRUD endpoints
+- 🗃️ MongoDB Atlas for cloud database storage
+- 🌐 Minimal HTML Frontend to interact with API
+- 🧪 Automated Testing using Jest and Supertest
+- 📊 Test Coverage Report (85%+ coverage)
+
+## 🛠 Tech Stack
+
+- **Backend:** Node.js, Express  
+- **Database:** MongoDB Atlas, Mongoose  
+- **Frontend:** HTML, CSS, JavaScript  
+- **Testing:** Jest, Supertest  
+- **Environment Management:** dotenv  
+- **Manual API Testing:** Postman  
 
 ## 🔗 API Endpoints
 
-| Method | Endpoint         | Description        |
-|--------|------------------|--------------------|
-| POST   | `/api/items`     | Add a new item     |
-| GET    | `/api/items`     | Get all items      |
-| PUT    | `/api/items/:id` | Update an item     |
-| DELETE | `/api/items/:id` | Delete an item     |
+| Method | Endpoint         | Description             |
+|--------|------------------|-------------------------|
+| POST   | `/api/items`     | Create a new item       |
+| GET    | `/api/items`     | Get all items           |
+| PUT    | `/api/items/:id` | Update an existing item |
+| DELETE | `/api/items/:id` | Delete an item          |
 
 ## ▶️ How to Run the Project
 
